@@ -3,12 +3,18 @@ import pandas as pd
 
 dataset = pd.read_csv("Batchelor_degrees2017_18.csv")
 
-##look at dataset shape
+
+##find the missing values
+print(dataset.isnull().sum())
+
+##replace missing values
+cleaned_data = dataset.fillna(method='bfill', axis=0).fillna(0)
+print(cleaned_data.isnull().sum())
 print(dataset.shape)
-##show dataset columns
-print(dataset.columns)
-##show data types
-print(dataset.dtypes)
-##sort by Total number of degrees
-print(dataset.Total.sort_values)
+
+
+
+
+
+
 
